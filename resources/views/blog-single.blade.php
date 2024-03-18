@@ -40,7 +40,7 @@
                                 </div>
                             </div>
                             <div class="" style="max-width: 100%; text-align: center">
-                                <img src="/storage/{{ $blog->gambar_blog }}" alt="">
+                                <img src="/storage/public/{{ $blog->gambar_blog }}" alt="">
                                 <!-- Post Date -->
 
                             </div>
@@ -54,7 +54,7 @@
                             @if (isset($blog->video_blog))
                                 <div class="" style="text-align: center">
                                     <video style="max-width: 100%;" controls>
-                                        <source src="/storage/{{ $blog->video_blog }}" type="video/mp4">
+                                        <source src="/storage/public/{{ $blog->video_blog }}" type="video/mp4">
 
                                         Your browser does not support the video tag.
                                     </video>
@@ -82,7 +82,7 @@
                                             <div class="row">
                                                 <div class="col-6 col-lg-4">
 
-                                                    <img src="/storage/{{ $ano->gambar_blog }}" alt="">
+                                                    <img src="/storage/public/{{ $ano->gambar_blog }}" alt="">
 
                                                 </div>
                                                 <!-- Thumbnail -->
@@ -106,16 +106,16 @@
                         </div>
 
                         <!-- Widget -->
-                        <div class="single-widget mb-80">
-                            <h6>Categories</h6>
-                            <ul class="list">
-                                <li><a href="#">Restaurants</a></li>
-                                <li><a href="#">Food &amp; Drinks</a></li>
-                                <li><a href="#">Vegans</a></li>
-                                <li><a href="#">Events &amp; Lifestyle</a></li>
-                                <li><a href="#">Uncategorized</a></li>
-                            </ul>
-                        </div>
+                        <!--<div class="single-widget mb-80">-->
+                        <!--    <h6>Categories</h6>-->
+                        <!--    <ul class="list">-->
+                        <!--        <li><a href="#">Restaurants</a></li>-->
+                        <!--        <li><a href="#">Food &amp; Drinks</a></li>-->
+                        <!--        <li><a href="#">Vegans</a></li>-->
+                        <!--        <li><a href="#">Events &amp; Lifestyle</a></li>-->
+                        <!--        <li><a href="#">Uncategorized</a></li>-->
+                        <!--    </ul>-->
+                        <!--</div>-->
 
                     </div>
                 </div>

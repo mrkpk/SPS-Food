@@ -9,12 +9,19 @@
         <a href="/form-resep">
     @endif
 
+
     <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg/background.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcumb-text text-center">
-                        <h2>Receipes</h2>
+                        <h1 class="head-1">
+                            Resep Kami
+                        </h1>
+                        <h3 class="head-2">OUR RECIPES</h3>
+                        <h3 class="head-3">WE PROVIDE <br>
+                            GOOD QUALITY FOOD</h3>
+
                     </div>
                 </div>
             </div>
@@ -34,55 +41,64 @@
             </nav>
         </div>
     </section>
-    <div class="receipe-post-area section-padding-80">
+    <div class="receipe-post-area">
 
         <!-- Receipe Post Search -->
-        <div class="receipe-post-search mb-80">
+        <!--<div class="receipe-post-search mb-80">-->
+        <!--    <div class="container">-->
+        <!--        <form action="#" method="post">-->
+        <!--            <div class="row">-->
+        <!--                <div class="col-12 col-lg-3">-->
+        <!--                    <select name="select1" id="select1">-->
+        <!--                        <option value="1">All Receipies Categories</option>-->
+        <!--                        <option value="1">All Receipies Categories 2</option>-->
+        <!--                        <option value="1">All Receipies Categories 3</option>-->
+        <!--                        <option value="1">All Receipies Categories 4</option>-->
+        <!--                        <option value="1">All Receipies Categories 5</option>-->
+        <!--                    </select>-->
+        <!--                </div>-->
+        <!--                <div class="col-12 col-lg-3">-->
+        <!--                    <select name="select1" id="select2">-->
+        <!--                        <option value="1">All Receipies Categories</option>-->
+        <!--                        <option value="1">All Receipies Categories 2</option>-->
+        <!--                        <option value="1">All Receipies Categories 3</option>-->
+        <!--                        <option value="1">All Receipies Categories 4</option>-->
+        <!--                        <option value="1">All Receipies Categories 5</option>-->
+        <!--                    </select>-->
+        <!--                </div>-->
+        <!--                <div class="col-12 col-lg-3">-->
+        <!--                    <input type="search" name="search" placeholder="Search Receipies">-->
+        <!--                </div>-->
+        <!--                <div class="col-12 col-lg-3 text-right">-->
+        <!--                    <button type="submit" class="btn delicious-btn">Search</button>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </form>-->
+
+        <!--    </div>-->
+        <!--</div>-->
+
+        <div class="blog-area section-padding-40">
             <div class="container">
-                <form action="#" method="post">
-                    <div class="row">
-                        <div class="col-12 col-lg-3">
-                            <select name="select1" id="select1">
-                                <option value="1">All Receipies Categories</option>
-                                <option value="1">All Receipies Categories 2</option>
-                                <option value="1">All Receipies Categories 3</option>
-                                <option value="1">All Receipies Categories 4</option>
-                                <option value="1">All Receipies Categories 5</option>
-                            </select>
-                        </div>
-                        <div class="col-12 col-lg-3">
-                            <select name="select1" id="select2">
-                                <option value="1">All Receipies Categories</option>
-                                <option value="1">All Receipies Categories 2</option>
-                                <option value="1">All Receipies Categories 3</option>
-                                <option value="1">All Receipies Categories 4</option>
-                                <option value="1">All Receipies Categories 5</option>
-                            </select>
-                        </div>
-                        <div class="col-12 col-lg-3">
-                            <input type="search" name="search" placeholder="Search Receipies">
-                        </div>
-                        <div class="col-12 col-lg-3 text-right">
-                            <button type="submit" class="btn delicious-btn">Search</button>
-                        </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p class="text-center">Temukan hidangan lezat yang mudah dibuat dengan bahan baku berkualitas tinggi
+                            dari kami. Jelajahi petualangan kuliner yang menggoda selera, mulai dari hidangan pembuka yang
+                            membangkitkan selera hingga hidangan penutup yang memanjakan lidah. Temukan resep favorit Anda
+                            di antara berbagai pilihan yang tersedia, dan ciptakan momen istimewa bersama orang-orang
+                            terkasih.</p>
                     </div>
-                </form>
-
-            </div>
-        </div>
-
-        <div class="blog-area section-padding-80">
-            <div class="container">
+                </div>
                 <div class="row">
 
                     <div class="row">
                         <!-- Single Best Receipe Area -->
 
-                        @foreach ($menu as $menu)
+                        @foreach ($menus as $menu)
                             <div class="col-6 col-sm-6 col-lg-4">
                                 <div class="single-best-receipe-area mb-30">
                                     <a href="/receipe-id/{{ $menu->id_menu }}">
-                                        <img src="/storage/{{ $menu->gambar_path }}" alt="">
+                                        <img src="/storage/public/{{ $menu->gambar_path }}" alt="">
                                     </a>
                                     <div class="post-date">
                                         <a href="/receipe-id/{{ $menu->id_menu }}"><span>{{ $menu->created_at->format('d') }}</span>{{ $menu->created_at->format('M') }}
@@ -107,13 +123,12 @@
                         @endforeach
 
                     </div>
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item active"><a class="page-link" href="#">01.</a></li>
-                            <li class="page-item"><a class="page-link" href="#">02.</a></li>
-                            <li class="page-item"><a class="page-link" href="#">03.</a></li>
-                        </ul>
-                    </nav>
+                    <div style="color: brown">
+                        {{ $menus->links('pagination.default') }}
+                    </div>
+
+
+
                 </div>
             </div>
         </div>

@@ -28,6 +28,12 @@ class AuthController extends Controller
             Session::put('id_user', $user->id_admin);
             Session::put('login', TRUE);
             return redirect('/');
+        } else {
+            return redirect('/login')->withErrors(
+                [
+                    'email' => 'Username atau Password salah'
+                ]
+            );
         }
     }
 

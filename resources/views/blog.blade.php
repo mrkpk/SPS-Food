@@ -13,7 +13,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="breadcumb-text text-center">
-                        <h2>Blog</h2>
+                        <h2 class="head-1">Blog</h2>
                     </div>
                 </div>
             </div>
@@ -46,8 +46,8 @@
                             <div class="single-blog-area mb-80">
                                 <!-- Thumbnail -->
                                 <div class="blog-thumbnail bg-overlay">
-                                    <a href="/blog-id">
-                                        <img src="storage/{{ $blog->gambar_blog }}" alt="">
+                                    <a href="/blog-id/{{ $blog->id_blog }}">
+                                        <img src="storage/public/{{ $blog->gambar_blog }}" alt="">
                                     </a>
                                     <!-- Post Date -->
                                     <div class="post-date">
@@ -65,7 +65,7 @@
                                     <p>
                                         {{ Str::limit($blog->isi_blog, 200) }}
                                     </p>
-                                    <a href="#" class="btn delicious-btn mt-30">Read More</a>
+                                    <a href="/blog-id/{{ $blog->id_blog }}" class="btn delicious-btn mt-30">Read More</a>
                                 </div>
                             </div>
                         @endforeach

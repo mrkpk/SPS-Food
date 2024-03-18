@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use App\Models\Hero;
-
+use App\Models\Content;
+use App\Models\Instagram;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
@@ -14,9 +15,10 @@ class HomeController extends Controller
     {
         $best = Menu::where('best', 1)
             ->get();
-        $hero = Hero::all();
+        $hero = Hero::where('status', 1)->orderby('first', 'desc')->get();
+        $ig = Instagram::limit(4)->get();
 
-        return view('index', compact(['best', 'hero']));
+        return view('index', compact(['best', 'hero', 'ig']));
     }
 
     public function receipe()
@@ -26,7 +28,8 @@ class HomeController extends Controller
 
     public function contact()
     {
-        return view('contact');
+        $content = Content::first();
+        return view('contact', compact(['content']));
     }
 
     public function elements()
@@ -36,7 +39,8 @@ class HomeController extends Controller
 
     public function about()
     {
-        return view('about');
+        $content = Content::first();
+        return view('about', compact(['content']));
     }
     public function blog()
     {
@@ -56,11 +60,17 @@ class HomeController extends Controller
         }
     }
 
-    public function pages()
+    public function pages($path)
     {
         if (session::has('login')) {
-            $data = Menu::where('best', 1)->get();
-            return view('pages-admin', compact(['data']));
+            if ($path == 1) {
+                $data = Menu::where('best', 1)->get();
+                return view('pages-admin', compact(['data', 'path']));
+            }
+            if ($path == 0) {
+                $data = Hero::where('status', 0)->get();
+                return view('pages-admin', compact(['data', 'path']));
+            }
         } else {
             return redirect('home');
         }

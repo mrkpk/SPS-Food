@@ -7,13 +7,29 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Receipes</h1>
+        @if ($type == 1)
+            <h1 class="h3 mb-2 text-gray-800">Receipes</h1>
+        @endif
+        @if ($type == 0)
+            <h1 class="h3 mb-2 text-gray-800">Receipes Trash</h1>
+        @endif
 
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                <h6 class="m-0 font-weight-bold text-primary">
+                    @if ($type == 1)
+                        <a href="/receipes-trash/1" class="btn btn-secondary btn-circle">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    @endif
+                    @if ($type == 0)
+                        <a href="/receipes-admin/1" class="btn btn-secondary btn-circle">
+                            <i class="fa fa-reply"></i>
+                        </a>
+                    @endif
+                </h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -34,7 +50,7 @@
                                     <td>{{ $data->kategori }}</td>
                                     <td>
                                         @if (!empty($data->gambar_path))
-                                            <img style="max-width:250px" src="/storage/{{ $data->gambar_path }}"
+                                            <img style="max-width:250px" src="/storage/public/{{ $data->gambar_path }}"
                                                 alt="">
                                         @else
                                             Tidak ada gambar
@@ -43,7 +59,7 @@
                                     <td>
                                         @if (!empty($data->video_path))
                                             <video style="max-width: 250px;" controls>
-                                                <source src="/storage/{{ $data->video_path }}" type="video/mp4">
+                                                <source src="/storage/public/{{ $data->video_path }}" type="video/mp4">
 
                                                 Your browser does not support the video tag.
                                             </video>
@@ -52,12 +68,24 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="/edit-receipes/1/{{ $data->id_menu }}" class="btn btn-primary btn-circle">
-                                            <i class="fa fa-pencil"></i>
-                                        </a>
-                                        <a href="/delete-receipes/1/{{ $data->id_menu }}" class="btn btn-danger btn-circle">
-                                            <i class="fa fa-minus"></i>
-                                        </a>
+                                        @if ($type == 1)
+                                            <a href="/edit-receipes/1/{{ $data->id_menu }}"
+                                                class="btn btn-primary btn-circle">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a href="#" class="trash btn btn-danger btn-circle"
+                                                id="1/{{ $data->id_menu }}">
+                                                <i class="fa fa-minus"></i>
+                                            </a>
+                                        @endif
+                                        @if ($type == 0)
+                                            <a href="#" class="trash btn btn-primary btn-circle"
+                                                id="0/{{ $data->id_menu }}">
+                                                <i class="fa fa-undo"></i>
+                                            </a>
+                                        @endif
+                                        <!-- Logout Modal-->
+
                                     </td>
                                 </tr>
                             @endforeach
@@ -68,5 +96,22 @@
         </div>
 
     </div>
+    <script>
+        $(document).on('click', '.trash', function() {
+            var a = this.id;
+
+            alertify.confirm("This is a confirm dialog.",
+                function() {
+
+                    alertify.success('Ok');
+                    location.href = "/remove-receipes/1/" + a;
+                },
+                function() {
+                    alertify.error('Cancel');
+                });
+        });
+    </script>
+
+
     <!-- /.container-fluid -->
 @endsection

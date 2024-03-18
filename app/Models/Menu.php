@@ -9,6 +9,6 @@ class Menu extends Model
 {
     protected $table = 'menu';
     protected $primaryKey = 'id_menu';
-    protected $fillable = ['id_menu', 'nama_menu', 'kategori', 'persiapan', 'durasi', 'porsi', 'gambar_path', 'video_path', 'best', 'id_pengirim', 'created_at', 'updated_at'];
+    protected $fillable = ['id_menu', 'nama_menu', 'kategori', 'persiapan', 'durasi', 'porsi', 'status', 'gambar_path', 'video_path', 'link', 'best', 'oleh', 'id_pengirim', 'created_at', 'updated_at'];
     protected $guarded = [];
 }

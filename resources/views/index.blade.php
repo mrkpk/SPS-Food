@@ -9,16 +9,21 @@
 
             @foreach ($hero as $hero)
                 <!-- Single Hero Slide -->
-                <div class="single-hero-slide bg-img" style="background-image: url(/storage/{{ $hero->gambar }});">
+                <div class="single-hero-slide bg-img" style="background-image: url(/storage/public/{{ $hero->gambar }});">
                     <div class="container h-100">
                         <div class="row h-100 align-items-center">
-                            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                                <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
-                                    <h2 data-animation="fadeInUp" data-delay="300ms">{{ $hero->nama }}</h2>
-                                    <p data-animation="fadeInUp" data-delay="700ms">{{ $hero->deskripsi }}</p>
-
+                            @if ($hero->nama != null || $hero->deskripsi != null)
+                                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                                    <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
+                                        @if ($hero->nama != null)
+                                            <h2 data-animation="fadeInUp" data-delay="300ms">{{ $hero->nama }}</h2>
+                                        @endif
+                                        @if ($hero->deskripsi)
+                                            <p data-animation="fadeInUp" data-delay="700ms">{{ $hero->deskripsi }}</p>
+                                        @endif
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -39,7 +44,7 @@
                         <div class="top-cta-content">
                             <h3>Resep Masakan</h3>
                             <h6>Simple &amp; Delicios</h6>
-                            <a href="/receipe" class="btn delicious-btn">See Receipes</a>
+                            <a href="/receipe" class="btn delicious-btn">See Recipes</a>
                         </div>
                     </div>
                 </div>
@@ -66,7 +71,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading">
-                        <h3>The best Receipies</h3>
+                        <h3>The Best Recipes</h3>
                     </div>
                 </div>
             </div>
@@ -76,7 +81,7 @@
                     <div class="col-6 col-sm-6 col-lg-4">
                         <div class="single-best-receipe-area mb-30">
                             <a href="/receipe-id/{{ $best->id_menu }}">
-                                <img src="/storage/{{ $best->gambar_path }}" alt="">
+                                <img src="/storage/public/{{ $best->gambar_path }}" alt="">
                             </a>
                             <div class="receipe-content">
                                 <a href="/receipe-id/{{ $best->id_menu }}">
@@ -103,7 +108,7 @@
     <!-- ##### Best Receipe Area End ##### -->
 
     <!-- ##### CTA Area Start ##### -->
-    <section class="cta-area bg-img bg-overlay" style="background-image: url(img/bg/bg7.jpg);">
+    <section class="cta-area bg-img bg-overlay" style="background-image: url(img/bg/bg8.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -120,7 +125,6 @@
                             ini sudah mencakup seluruh wilayah Indonesia, dengan didukung oleh distributor yang
                             mempunyai kemampuan distribusi dan team distribusi yang tangguh.
                         </p>
-                        <a href="#" class="btn delicious-btn">Buka Profil Lengkap</a>
                     </div>
                 </div>
             </div>
@@ -139,13 +143,10 @@
             </div>
             <div class="row align-items-center mt-40">
                 <!-- Single Cool Fact -->
-                <div class="col-1 col-sm-1 col-lg-2">
-                    <div class="single-marketplace">
-                    </div>
-                </div>
+
 
                 <!-- Single Cool Fact -->
-                <div class="col-5 col-sm-3 col-lg-4">
+                <div class="col-4 col-sm-3 col-lg-4">
                     <div class="single-marketplace">
                         <a href="https://shopee.co.id/sps_food" target="_blank">
                             <img class="w220 hp" src="img/core-img/shopee.png" alt="">
@@ -154,7 +155,7 @@
                 </div>
 
                 <!-- Single Cool Fact -->
-                <div class="col-5 col-sm-3 col-lg-4">
+                <div class="col-4 col-sm-3 col-lg-4">
                     <div class="single-marketplace">
                         <a href="https://www.blibli.com/merchant/sps-food-official-store/SPF-70002" target="_blank">
                             <img class="w220 hp" src="img/core-img/blibli.png" alt="">
@@ -162,24 +163,29 @@
 
                     </div>
                 </div>
-
-                <!-- Single Cool Fact -->
-                <div class="col-1 col-sm-6 col-lg-2">
+                <div class="col-4 col-sm-3 col-lg-4">
                     <div class="single-marketplace">
+                        <a href="https://www.bukalapak.com/sps-food-official-store-official" target="_blank">
+                            <img class="w220 hp" src="img/core-img/bukalapak.png" alt="">
+                        </a>
+
                     </div>
                 </div>
+
+                <!-- Single Cool Fact -->
+
             </div>
 
 
             <div class="row align-items-center mt-40">
                 <!-- Single Cool Fact -->
-                <div class="col-1 col-sm-6 col-lg-3">
+                <div class="col-4 col-sm-6 col-lg-3">
                     <div class="single-marketplace">
                     </div>
                 </div>
 
                 <!-- Single Cool Fact -->
-                <div class="col-3 col-sm-6 col-lg-2">
+                <div class="col-4 col-sm-6 col-lg-3">
                     <div class="single-marketplace">
                         <a href="https://tokopedia.link/1dFi0HSZtub" target="_blank">
                             <img class="hp" src="img/core-img/tokopedia.png" alt="">
@@ -198,14 +204,7 @@
                 </div>
 
                 <!-- Single Cool Fact -->
-                <div class="col-3 col-sm-6 col-lg-2">
-                    <div class="single-marketplace">
-                        <a href="https://www.bukalapak.com/sps-food-official-store-official" target="_blank">
-                            <img class="hp" src="img/core-img/bukalapak.png" alt="">
-                        </a>
 
-                    </div>
-                </div>
             </div>
         </div>
     </section>

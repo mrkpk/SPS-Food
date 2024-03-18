@@ -9,6 +9,6 @@ class Product extends Model
 {
     protected $table = 'produk';
     protected $primaryKey = 'id_produk';
-    protected $fillable = ['id_produk', 'nama_produk', 'principal', 'kategori', 'merk', 'gambar'];
+    protected $fillable = ['id_produk', 'nama_produk', 'principal', 'kategori', 'merk', 'gambar', 'desk', 'status'];
     public $timestamps = false;
 }
