@@ -9,6 +9,7 @@
 /* :: 1.0 Import Fonts */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i");
 @import url("https://fonts.googleapis.com/css2?family=Ephesis&family=Lilita+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 /* :: 2.0 Import All CSS */
 @import url(css/bootstrap.min.css);
 @import url(css/owl.carousel.min.css);
@@ -25,7 +26,7 @@
 }
 
 body {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 14px;
 }
 
@@ -824,6 +825,11 @@ textarea:focus {
     width: 80%;
     left: 17%;
 }
+@media only screen and (max-width: 767px) {
+    .hero-slides .owl-dots {
+        display: none;
+    }
+}
 .hero-slides .owl-dots .owl-dot {
     font-size: 16px;
     font-weight: 600;
@@ -1246,8 +1252,8 @@ textarea:focus {
     z-index: 1;
     padding-top: 40px;
 }
-.single-blog-area .blog-content .post-title {
-    font-size: 22px;
+.blog-content .post-title {
+    font-size: 40px;
     color: #474747;
     margin-bottom: 10px;
 }
@@ -1443,14 +1449,38 @@ textarea:focus {
         font-size: 24px;
     }
 }
-.receipe-headline .receipe-duration {
-    border-left: 3px solid #40ba37;
-    padding: 15px;
+.receipe-duration {
+    padding-top: 200px;
 }
-.receipe-headline .receipe-duration h6 {
+
+.receipe-duration h6 {
+    font-family: "Lilita One", sans-serif;
+    font-weight: 200;
     font-size: 15px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
+    transition: transform 0.2s;
 }
+.receipe-duration h6 span {
+    color: #e4a402;
+    transition: transform 0.2s;
+}
+.receipe-duration h6:hover {
+    transform: scale(
+        1.1
+    ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+@media only screen and (max-width: 767px) {
+    .receipe-duration {
+        border-left: 3px solid #e4a402;
+        padding: 15px;
+        padding-top: 10px;
+    }
+    .receipe-duration h6 {
+        font-size: 12px;
+    }
+}
+
 .receipe-headline .receipe-duration h6:last-child {
     margin-bottom: 0;
 }
@@ -1458,10 +1488,34 @@ textarea:focus {
 .receipe-ratings .ratings {
     margin-bottom: 30px;
 }
+@media only screen and (max-width: 767px) {
+    .receipe-ratings .ratings {
+        margin: 0px;
+    }
+}
+.receipe-ratings {
+    padding: 200px 0 0 0;
+}
 .receipe-ratings i {
-    font-size: 18px;
+    font-size: 40px;
     color: #fbb710;
-    padding: 0 3px;
+    transition: transform 0.2s;
+    padding: 3px;
+}
+.receipe-ratings i:hover {
+    transform: scale(
+        1.5
+    ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+@media only screen and (max-width: 767px) {
+    .receipe-ratings {
+        padding: 100px 0 0 0;
+    }
+    .receipe-ratings i {
+        font-size: 20px;
+        color: #fbb710;
+        padding: 3px;
+    }
 }
 
 .single-preparation-step {
@@ -1489,6 +1543,7 @@ textarea:focus {
         margin-bottom: 80px;
     }
 }
+
 .ingredients h4 {
     color: #474747;
     margin-bottom: 30px;
@@ -1496,6 +1551,7 @@ textarea:focus {
 .ingredients .custom-checkbox .custom-control-label::before {
     border-radius: 0;
 }
+
 .ingredients .custom-control-label::before {
     width: 30px;
     height: 30px;
@@ -1505,6 +1561,11 @@ textarea:focus {
     padding-left: 2.5rem;
     margin-bottom: 30px;
     min-height: 35px;
+}
+@media only screen and (max-width: 767px) {
+    .ingredients .custom-control {
+        padding-left: 0;
+    }
 }
 .ingredients .custom-control-label {
     margin-bottom: 0;
@@ -1524,6 +1585,18 @@ textarea:focus {
     .custom-control-input:checked
     ~ .custom-control-label::before {
     background-color: #40ba37;
+}
+
+.desc-prod {
+    color: black;
+    text-align: center;
+    width: 300px;
+}
+
+@media only screen and (max-width: 767px) {
+    .desc-prod {
+        width: 100%;
+    }
 }
 
 /* :: 16.0 Footer Area CSS */
@@ -1596,8 +1669,12 @@ textarea:focus {
     margin-top: -40px;
 }
 .footer-area .footer-logo .alamat1 {
-    max-width: 900px;
+    width: max-content;
     margin-top: -80px;
+}
+.footer-area .footer-logo .alamat1 span {
+    display: flex; /* Change to flex to ensure items stay in a single line */
+    flex-wrap: nowrap; /* Ensure items don't wrap to the next line */
 }
 @media only screen and (max-width: 767px) {
     .footer-area .footer-logo img {
@@ -1611,10 +1688,13 @@ textarea:focus {
         margin-top: -145px;
     }
     .footer-area .footer-logo .alamat1 {
-        max-width: 900px;
-        width: 211px;
+        width: max-content;
         margin-top: -154px;
-        margin-left: -82px;
+        margin-left: -50px;
+    }
+    .footer-area .footer-logo .alamat1 span {
+        display: flex; /* Change to flex to ensure items stay in a single line */
+        flex-wrap: nowrap; /* Ensure items don't wrap to the next line */
     }
     .footer-area .footer-logo .icon {
         display: none;
@@ -1632,8 +1712,18 @@ textarea:focus {
     margin-bottom: 0;
 }
 .follow-us-instagram .insta-feeds {
-    position: relative;
-    z-index: 1;
+    display: flex; /* Change to flex to ensure items stay in a single line */
+    flex-wrap: nowrap; /* Ensure items don't wrap to the next line */
+    overflow-x: auto; /* Allow horizontal scrolling if items overflow */
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
+    width: 100%; /* Adjust the width as needed */
+    height: 160px; /* Adjust the height as needed */
+}
+
+@media only screen and (max-width: 767px) {
+    .follow-us-instagram .insta-feeds {
+        height: 100px; /* Adjust the height as needed */
+    }
 }
 .follow-us-instagram .insta-feeds .single-insta-feeds {
     position: relative;
@@ -1723,15 +1813,26 @@ textarea:focus {
         height: 360px;
     }
 }
-.breadcumb-area .breadcumb-text .head-1 {
+.single-insta-feeds {
+    filter: grayscale(100%);
+}
+
+.single-insta-feeds.active {
+    filter: none;
+}
+
+.head-1 {
     font-family: "ephesis", "cursive";
     font-size: 94px;
     font-weight: 500;
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    color: white;
+    color: rgb(0, 0, 0);
     line-height: 0.75em;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
+}
+@media only screen and (max-width: 767px) {
+    .head-1 {
+        font-size: 47px;
+    }
 }
 .breadcumb-area .breadcumb-text .head-2 {
     font-family: "Lilita One", sans-serif;

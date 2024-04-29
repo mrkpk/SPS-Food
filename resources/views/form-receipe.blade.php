@@ -1,6 +1,6 @@
 @extends('/layout.mainlayout')
 
-@section('title', 'Recipes')
+@section('title', 'Resep')
 
 @section('content')
 
@@ -22,8 +22,8 @@
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" style="background-color: transparent">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item"><a href="/receipe">Recipes</a></li>
+                    <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+                    <li class="breadcrumb-item"><a href="/receipe">Resep</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Form Resep</li>
                 </ol>
             </nav>

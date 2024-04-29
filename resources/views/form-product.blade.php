@@ -1,6 +1,6 @@
 @extends('/layout.mainlayout')
 
-@section('title', 'Product')
+@section('title', 'Produk')
 
 @section('content')
 
@@ -58,6 +58,7 @@
                                                 <option value="Mimora">Mimora</option>
                                                 <option value="Padamu">Padamu</option>
                                                 <option value="Vitarasa">Vitarasa</option>
+                                                <option value="Bisohun">Bisohun</option>
                                             </select>
                                         </div>
                                     </div>

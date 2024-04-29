@@ -16,9 +16,9 @@ class HomeController extends Controller
         $best = Menu::where('best', 1)
             ->get();
         $hero = Hero::where('status', 1)->orderby('first', 'desc')->get();
-        $ig = Instagram::limit(4)->get();
+        $content = Content::first();
 
-        return view('index', compact(['best', 'hero', 'ig']));
+        return view('index', compact(['best', 'hero', 'content']));
     }
 
     public function receipe()
@@ -48,7 +48,8 @@ class HomeController extends Controller
     }
     public function product()
     {
-        return view('product');
+        $content = Content::first();
+        return view('product', compact(['content']));
     }
 
     public function admin()

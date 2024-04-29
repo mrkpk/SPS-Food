@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Menu;
 use App\Models\Proses;
 use App\Models\Bahan;
+use App\Models\Content;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -15,7 +16,8 @@ class ReceipeController extends Controller
     public function index()
     {
         $menus = Menu::where('status', 1)->orderBy('created_at', 'DESC')->Paginate(12);
-        return view('receipe', compact(['menus']));
+        $content = Content::first();
+        return view('receipe', compact(['menus', 'content']));
     }
 
     public function single_receipe($id)
@@ -50,7 +52,7 @@ class ReceipeController extends Controller
         if (session::has('login')) {
             $menu = $request->except(['proses', 'bahan', '_token', 'gambar']);
             $gambar = $request->file('gambar');
-            $gambar_path = $gambar->storeAs('user_upload/gambar/resep', 'resep_' . uniqid() . '.' . $gambar->extension());
+            $gambar_path = $gambar->storeAs('public/user_upload/gambar/resep', 'resep_' . uniqid() . '.' . $gambar->extension());
 
 
             $video = $request->file('video');

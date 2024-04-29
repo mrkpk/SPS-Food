@@ -32,46 +32,15 @@
     </section>
     <!-- ##### Hero Area End ##### -->
 
-    <!-- ##### Top Catagory Area Start ##### -->
-    <section class="top-catagory-area section-padding-80-0">
-        <div class="container">
-            <div class="row">
-                <!-- Top Catagory Area -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-top-catagory">
-                        <img src="img/bg/bg24.jpg" alt="">
-                        <!-- Content -->
-                        <div class="top-cta-content">
-                            <h3>Resep Masakan</h3>
-                            <h6>Simple &amp; Delicios</h6>
-                            <a href="/receipe" class="btn delicious-btn">See Recipes</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Top Catagory Area -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-top-catagory">
-                        <img src="img/bg/produk1.jpg" alt="">
-                        <!-- Content -->
-                        <div class="top-cta-content">
-                            <h3>Produk Kami</h3>
-                            <h6></h6>
-                            <a href="/product" class="btn delicious-btn">See All Products</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Top Catagory Area End ##### -->
+
 
     <!-- ##### Best Receipe Area Start ##### -->
-    <section class="best-receipe-area">
+    <section class="best-receipe-area section-padding-80-0">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading">
-                        <h3>The Best Recipes</h3>
+                        <h3>Resep Kami</h3>
                     </div>
                 </div>
             </div>
@@ -100,7 +69,7 @@
                         </div>
                     </div>
                 @endforeach
-
+                <a href="/receipe" class="btn delicious-btn offset-4 col-4">Resep Lainnya</a>
                 <!-- Single Best Receipe Area -->
             </div>
         </div>
@@ -115,15 +84,7 @@
                     <!-- Cta Content -->
                     <div class="cta-content text-center">
                         <h2>Tentang Kami</h2>
-                        <p>PT Sinar Pangan Sejahtera berdiri pada tahun 2005 sebagai perusahaan yang memproduksi produk
-                            bihun jagung merk "PADAMU" dan "BI JAG" berlokasi di Pasauruan Jawa Timur. PT. Sinar Pangan
-                            Sejahtera hadir menjawab kebutuhan konsumennya atas produk makanan yang berkualitas
-                            khususnya kategori bigun jagung yang pasarnya atau kebutuhannya terus bertumbuh sangat
-                            pesat. Hingga saat ini PT. Sinar Pangan Sejahtera terus berkembang pesat dan mempunyai
-                            produk-produk unggulan lainnya, seperti sohun merk "SOHUN KACA", mie kering merk "MIMORA"
-                            dan "Langit Biru". Untuk wilayah distribusi produk-produk PT Sinar Pangan Sejahtera, saat
-                            ini sudah mencakup seluruh wilayah Indonesia, dengan didukung oleh distributor yang
-                            mempunyai kemampuan distribusi dan team distribusi yang tangguh.
+                        <p>{{ $content['tentang_home'] }}
                         </p>
                     </div>
                 </div>
@@ -137,7 +98,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading">
-                        <h3 class="om">Our Marketplaces</h3>
+                        <h3 class="om">Belanja Online Produk Kami</h3>
                     </div>
                 </div>
             </div>
@@ -146,7 +107,7 @@
 
 
                 <!-- Single Cool Fact -->
-                <div class="col-4 col-sm-3 col-lg-4">
+                <div class="col-4 col-sm-3 col-md-4 col-lg-4">
                     <div class="single-marketplace">
                         <a href="https://shopee.co.id/sps_food" target="_blank">
                             <img class="w220 hp" src="img/core-img/shopee.png" alt="">
@@ -155,7 +116,7 @@
                 </div>
 
                 <!-- Single Cool Fact -->
-                <div class="col-4 col-sm-3 col-lg-4">
+                <div class="col-4 col-sm-3 col-md-4 col-lg-4">
                     <div class="single-marketplace">
                         <a href="https://www.blibli.com/merchant/sps-food-official-store/SPF-70002" target="_blank">
                             <img class="w220 hp" src="img/core-img/blibli.png" alt="">
@@ -163,7 +124,7 @@
 
                     </div>
                 </div>
-                <div class="col-4 col-sm-3 col-lg-4">
+                <div class="col-4 col-sm-3 col-md-4 col-lg-4">
                     <div class="single-marketplace">
                         <a href="https://www.bukalapak.com/sps-food-official-store-official" target="_blank">
                             <img class="w220 hp" src="img/core-img/bukalapak.png" alt="">
@@ -179,13 +140,13 @@
 
             <div class="row align-items-center mt-40">
                 <!-- Single Cool Fact -->
-                <div class="col-4 col-sm-6 col-lg-3">
+                <div class="col-2 col-sm-2 col-lg-3">
                     <div class="single-marketplace">
                     </div>
                 </div>
 
                 <!-- Single Cool Fact -->
-                <div class="col-4 col-sm-6 col-lg-3">
+                <div class="col-4 col-lg-3">
                     <div class="single-marketplace">
                         <a href="https://tokopedia.link/1dFi0HSZtub" target="_blank">
                             <img class="hp" src="img/core-img/tokopedia.png" alt="">
@@ -194,7 +155,7 @@
                 </div>
 
                 <!-- Single Cool Fact -->
-                <div class="col-4 col-sm-6 col-lg-2">
+                <div class="col-4 col-sm-4 col-lg-2">
                     <div class="single-marketplace">
                         <a href="https://www.lazada.co.id/shop/sinar-anugerah-niaga-store?path=index.htm&lang=id&pageTypeId=1"
                             target="_blank">

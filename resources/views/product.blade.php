@@ -8,22 +8,8 @@
     @if (session('id_user'))
         <a href="/product-form">
     @endif
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg/bg8.jpg);">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12">
-                    <div class="breadcumb-text text-center">
-                        <h1 class="head-1">
-                            Produk Kami
-                        </h1>
-                        <h3 class="head-2">OUR PRODUCT</h3>
-                        <h3 class="head-3">WE PROVIDE <br>
-                            GOOD QUALITY FOOD</h3>
+    <div class="breadcumb-area bg-img" style="background-image: url(img/bg/produk.jpg);">
 
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     @if (session('id_user'))
@@ -33,7 +19,7 @@
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" style="background-color: transparent">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/">Beranda</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Produk</li>
 
                 </ol>
@@ -45,6 +31,11 @@
     <!-- ##### About Area Start ##### -->
     <section class="about-area section-padding-80">
         <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="text-center">{{ $content['prod_desc'] }}</p>
+                </div>
+            </div>
             {{-- <div class="row">
                 <div class="col-12">
                     <div class="section-heading">
@@ -62,7 +53,7 @@
                     </div>
                 </div> --}}
                 <!-- Instagram Feeds -->
-                <div class="insta-feeds d-flex flex-wrap">
+                <div class="insta-feeds d-flex">
 
                     <!-- Single Insta Feeds -->
                     <div class="single-insta-feeds" id="Bijag">
@@ -94,11 +85,17 @@
                         <!-- Icon -->
                     </div>
 
+                    <div class="single-insta-feeds" id="Bisohun">
+                        <img src="img/logo/BISOHUN.png" alt="">
+                        <!-- Icon -->
+                    </div>
+
                     <!-- Single Insta Feeds -->
                     <div class="single-insta-feeds" id="Vitarasa">
                         <img src="img/logo/VITARASA.png" alt="">
                         <!-- Icon -->
                     </div>
+
                 </div>
             </div>
 
@@ -113,40 +110,56 @@
     <!-- ##### About Area End ##### -->
 
     <script>
-        $(document).on('click', '#Bijag, #Kaca, #LB, #Mimora, #Padamu, #Vitarasa', function() {
+        $(document).on('click', '#Bijag, #Kaca, #LB, #Mimora, #Padamu, #Vitarasa, #Bisohun',
+            function() {
+                // Remove active class from all items
+                $('.single-insta-feeds').removeClass('active');
 
-            var id = this.id;
-            ambilData(id).then(prod => {
-                console.log(prod.data);
-                var item = "";
-                var head = "";
+                // Add active class to the clicked item
+                $(this).addClass('active');
+                var id = this.id;
+                ambilData(id).then(prod => {
+                    console.log(prod.cat);
+                    var item = "";
+                    var head = "";
 
-                head = '<div class="row align-items-center mt-70" id="bijagitem">' +
-                    '<div class="owl-carousel owl-theme" id="items">' +
-                    '</div>' +
-                    '</div>';
-                for (var i = 0; i < prod.data.length; i++) {
+                    head = '<div class="row align-items-center mt-70" id="bijagitem">' +
+                        '<div class="row d-flex justify-content-center">' +
+                        '<div class="col-10 col-md-9 col-lg-12">' +
 
-                    item += '<div class="item" >' +
-                        '<img src="/storage/public/' + prod.data[i].gambar +
-                        '" style="width:300px; background-size: cover;"' +
-                        'alt="...">' +
-                        '<p style="color: black;text-align:center">' + prod.data[i].desk +
-                        '' +
-                        '</p>' +
+                        '<p class="text-center" style="color:rgb(24, 24, 24)"><img src="' + prod.cat.path +
+                        '"' +
+                        '" style="width:150px; background-size: cover;"' +
+                        'alt="..."><br><br><strong>' + prod.cat.desk + '</strong></p>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="owl-carousel owl-theme" id="items">' +
+                        '</div>' +
                         '</div>';
-                }
-                $('.a').html(head);
-                $('#items').html(item);
-                $('#items').owlCarousel({
-                    center: true
-                }); // Initialize Owl Carousel
-                $('#items').trigger('refresh.owl.carousel'); // Refresh the carousel with new content
+                    for (var i = 0; i < prod.data.length; i++) {
 
-            })
+                        item += '<div class="item" >' +
+                            '<img src="/storage/public/' + prod.data[i].gambar +
+                            '" style="width:300px; background-size: cover;"' +
+                            'alt="...">' +
+                            '<p class="desc-prod"><strong>' + prod
+                            .data[i]
+                            .desk +
+                            '' +
+                            '</strong></p>' +
+                            '</div>';
+                    }
+                    $('.a').html(head);
+                    $('#items').html(item);
+                    $('#items').owlCarousel({
+                        center: true
+                    }); // Initialize Owl Carousel
+                    $('#items').trigger('refresh.owl.carousel'); // Refresh the carousel with new content
+
+                })
 
 
-        });
+            });
 
 
         async function ambilData(id) {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 
@@ -27,6 +28,7 @@ class ProductController extends Controller
             $produk = $request->all();
             $gambar = $request->file('gambar');
 
+
             $gambar_path = $gambar->storeAs('user_upload/gambar/product', 'product_' . uniqid() . '.' . $gambar->extension());
 
             $produk = Product::create([
@@ -34,6 +36,7 @@ class ProductController extends Controller
                 'principal'    => $produk['principal'],
                 'kategori'     => $produk['kategori'],
                 'merk'         => $produk['merk'],
+                'desk'         => $produk['desk'],
                 'gambar'       => $gambar_path
             ]);
             return redirect('/product');
@@ -57,9 +60,12 @@ class ProductController extends Controller
         $data = Product::where('kategori', $id)
             ->select('*', DB::raw('REPLACE(desk, ";", "<br>") AS desk'))
             ->get();
+
+        $cat = Category::where('kategori', $id)->first();
         return response()->json([
             'status' => 200,
-            'data' => $data
+            'data' => $data,
+            'cat' => $cat
         ], 200);
     }
 }

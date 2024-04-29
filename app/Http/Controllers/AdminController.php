@@ -368,23 +368,33 @@ class AdminController extends Controller
                     ]);
 
                 return redirect('/product-admin/3');
-            } elseif ($d['path'] == 7) {
-                $data = Instagram::find($d['id_ig']);
-                if (isset($d['gambar'])) {
-                    Storage::delete($data->foto);
-
-                    $gambar = $req->file('gambar');
-                    $ext = $gambar->extension();
-                    $gambar_path = $gambar->storeAs('public/user_upload/gambar/ig', 'ig' . $data->id_ig . '.' . strtolower($ext));
-                    $data->update(['foto' => $gambar_path]);
-                }
+            } elseif ($d['path'] == 6) {
+                $data = Content::first();
                 $data
                     ->update([
-                        'nama' => $d['nama'],
-                        'link' => $d['link']
+                        'prim_about' => $d['prim_about'],
+                        'sec_about' => $d['sec_about'],
+                        'visi' => $d['visi'],
+                        'misi' => $d['misi'],
+                        'desc_cont' => $d['desc_cont'],
+                        'alamat1' => $d['alamat1'],
+                        'alamat2' => $d['alamat2'],
+                        'no_hp1' => $d['no_hp1'],
+                        'no_hp2' => $d['no_hp2'],
+                        'no_hp3' => $d['no_hp3'],
+                        'email1' => $d['email1'],
+                        'email2' => $d['email2'],
+                        'email3' => $d['email3'],
+                        'tentang_home' => $d['tentang_home'],
+                        'resep_desc' => $d['resep_desc'],
+                        'produk_desc' => $d['produk_desc'],
+
+
+
+
                     ]);
 
-                return redirect('/pages/1');
+                return redirect('/content-admin/4');
             }
         } else {
             return redirect('home');

@@ -178,6 +178,10 @@
         </div>
     </div>
 
+
+
+    <script src="/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
     <!-- Bootstrap core JavaScript-->
     <script src="/css/admin/bootstrap.bundle.min.js"></script>
 
@@ -186,15 +190,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="/css/admin/sb-admin-2.min.js"></script>
-
-
-
-
-
-
-    <script src="/js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
-
     <!-- All Plugins js -->
     <script src="/js/plugins/plugins.js"></script>
     <!-- Active js -->

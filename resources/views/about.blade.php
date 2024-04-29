@@ -1,21 +1,23 @@
 @extends('/layout.mainlayout')
 
-@section('title', 'Home')
+@section('title', 'Tentang Kami')
 
 @section('content')
 
     <!-- ##### Breadcumb Area Start ##### -->
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg/background.jpg);">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12">
-                    <div class="breadcumb-text text-center">
-                        <h2>About Us</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="breadcumb-area bg-img" style="background-image: url(img/bg/tentang.jpg);">
+
     </div>
+    <section class="about-area" style="padding-top: 20px">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" style="background-color: transparent">
+                    <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Tentang Kami</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
     <!-- ##### Breadcumb Area End ##### -->
 
     <!-- ##### About Area Start ##### -->

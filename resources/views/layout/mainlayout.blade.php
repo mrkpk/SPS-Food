@@ -9,10 +9,10 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>PT.SPS Food | @yield('title')</title>
+    <title>SPS Food | @yield('title')</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="/img/core-img/favicon.ico">
+    <link rel="icon" href="/img/core-img/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.1.slim.js"
         integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
@@ -63,7 +63,7 @@
                         <div class="breaking-news">
                             <div id="breakingNewsTicker" class="ticker">
                                 <ul>
-                                    <li><a href="#">PT. SPS FOOD</a></li>
+                                    <li><a href="#">SPS FOOD</a></li>
                                     <li><a href="#">Selalu Padamu</a></li>
                                     <li><a href="#"></a></li>
                                 </ul>
@@ -116,17 +116,15 @@
                             <div class="classynav">
                                 <ul>
                                     <li class="{{ 'home' == request()->path() ? 'active' : '' }}"><a
-                                            href="/home">Home</a></li>
+                                            href="/home">BERANDA</a></li>
                                     <li class="{{ 'receipe' == request()->path() ? 'active' : '' }}"><a
-                                            href="/receipe">Recipes</a></li>
+                                            href="/receipe">RESEP</a></li>
                                     <li class="{{ 'product' == request()->path() ? 'active' : '' }}"><a
-                                            href="/product">Products</a></li>
-                                    <li class="{{ 'blog' == request()->path() ? 'active' : '' }}"><a
-                                            href="/blog">Blogs</a></li>
+                                            href="/product">PRODUK</a></li>
                                     <li class="{{ 'about' == request()->path() ? 'active' : '' }}"><a
-                                            href="/about">About</a></li>
+                                            href="/about">TENTANG KAMI</a></li>
                                     <li class="{{ 'contact' == request()->path() ? 'active' : '' }}"><a
-                                            href="/contact">Contact</a></li>
+                                            href="/contact">HUBUNGI KAMI</a></li>
 
                                 </ul>
 
@@ -290,10 +288,10 @@
                         <p class="alamat1">
                             <br>
 
-                            <span>Layanan Konsumen</span><br>
-                            <span style="font-size: 13px">Whatsapp / Call/ SMS : 0888 388 0888</span><br>
+                            <span>Layanan Konsumen</span>
+                            <span style="font-size: 13px;margin">Whatsapp/Call/SMS : 0888 388 0888</span>
 
-                            <span> spspeduli@gmail.com</span>
+                            <span>Email : spspeduli@gmail.com</span>
 
 
 

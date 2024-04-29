@@ -107,6 +107,33 @@
                         </tbody>
                     </table>
                 </div>
+
+                <h1 class="h3 mb-2 text-gray-800">Content</h1>
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Konten</th>
+                                <th>Isi</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="font-size: 14px">Home - Tentang Kami</td>
+                                <td style="font-size: 16px">{{ $data->tentang_home }}</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 14px">Resep - Desc</td>
+                                <td style="font-size: 16px">{{ $data->resep_desc }}</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 14px">Produk - Desc</td>
+                                <td style="font-size: 16px">{{ $data->produk_desc }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 

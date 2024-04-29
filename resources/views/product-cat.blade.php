@@ -21,7 +21,7 @@
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" style="background-color: transparent">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="/product">Produk</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{ $kategori }}</li>
                 </ol>

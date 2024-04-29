@@ -302,8 +302,7 @@
                                 <p>Kategori</p>
                             </div>
 
-                            <select class="form-select" name="kategori" id="kategori" multiple
-                                aria-label="multiple select example">
+                            <select class="form-select" name="kategori" id="kategori">
                                 <option value="0" selected>Open this select menu</option>
                                 <option value="Bijag">Bijag</option>
                                 <option value="Kaca">Kaca</option>
@@ -311,6 +310,7 @@
                                 <option value="Mimora">Mimora</option>
                                 <option value="Padamu">Padamu</option>
                                 <option value="Vitarasa">Vitarasa</option>
+                                <option value="Bisohun">Bisohun</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -351,11 +351,102 @@
                         enctype="multipart/form-data" onsubmit="validateFormC(event)">
                         @csrf
                         @method('POST')
+                        <h1 class="h3 mb-2 text-gray-800">Content</h1>
                         <div class="form-group">
-                            <div class="mb-1 small">Description pada halaman contact</div>
-                            <textarea type="text" class="form-control " name="nama" id="nama" placeholder="Judul Modal">
+                            <div class="mb-1 small">Tentang - Home</div>
+                            <textarea type="text" class="form-control" rows="4" name="tentang_home" placeholder="Judul Modal">
+                                {{ $data->tentang_home }}
+                            </textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="mb-1 small">Resep - Desc</div>
+                            <textarea type="text" class="form-control" rows="4" name="resep_desc" placeholder="Resep deskripsi">
+                                {{ $data->resep_desc }}
+                            </textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="mb-1 small">Produk - Desc</div>
+                            <textarea type="text" class="form-control" rows="4" name="produk_desc" placeholder="Produk deskripsi">
+                                {{ $data->produk_desc }}
+                            </textarea>
+                        </div>
+
+
+                        <h1 class="h3 mb-2 text-gray-800">About</h1>
+                        <div class="form-group">
+                            <div class="mb-1 small">Tentang - Tentang Kami - Primary</div>
+                            <textarea type="text" class="form-control" rows="4" name="prim_about" placeholder="Judul Modal">
+                                {{ $data->prim_about }}
+                            </textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="mb-1 small">Tentang - Tentang Kami - Secondary</div>
+                            <textarea type="text" class="form-control" rows="4" name="sec_about" placeholder="Judul Modal">
+                                {{ $data->sec_about }}
+                            </textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="mb-1 small">Visi</div>
+                            <textarea type="text" class="form-control" rows="4" name="visi" placeholder="Judul Modal">
+                                {{ $data->visi }}
+                            </textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="mb-1 small">Misi</div>
+                            <textarea type="text" class="form-control" rows="4" name="misi" placeholder="Judul Modal">
+                                {{ $data->misi }}
+                            </textarea>
+                        </div>
+
+                        <h1 class="h3 mb-2 text-gray-800">Kontak</h1>
+                        <div class="form-group">
+                            <div class="mb-1 small">Deskripsi pada halaman contact</div>
+                            <input type="hidden" name="path" value="6">
+                            <textarea type="text" class="form-control" rows="4" name="desc_cont" id="nama"
+                                placeholder="Judul Modal">
                                 {{ $data->desc_cont }}
                             </textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="mb-1 small">Alamat 1 pada halaman contact</div>
+                            <input type="text" class="form-control" name="alamat1" placeholder="Alamat1"
+                                value="{{ $data->alamat1 }}">
+
+                        </div>
+                        <div class="form-group">
+                            <div class="mb-1 small">Alamat 2 pada halaman contact</div>
+                            <input type="text" class="form-control" name="alamat2" placeholder="Alamat 2"
+                                value="{{ $data->alamat2 }}">
+                        </div>
+                        <div class="form-group">
+                            <div class="mb-1 small">No HP 1 pada halaman contact</div>
+                            <input type="text" class="form-control" name="no_hp1" placeholder="No HP 1"
+                                value="{{ $data->no_hp1 }}">
+                        </div>
+                        <div class="form-group">
+                            <div class="mb-1 small">No HP 2 pada halaman contact</div>
+                            <input type="text" class="form-control" name="no_hp2" placeholder="No HP 2"
+                                value="{{ $data->no_hp2 }}">
+                        </div>
+                        <div class="form-group">
+                            <div class="mb-1 small">No HP 3 pada halaman contact</div>
+                            <input type="text" class="form-control" name="no_hp3" placeholder="No HP 3"
+                                value="{{ $data->no_hp3 }}">
+                        </div>
+                        <div class="form-group">
+                            <div class="mb-1 small">Email 1 pada halaman contact</div>
+                            <input type="text" class="form-control" name="email1" placeholder="Email 1"
+                                value="{{ $data->email1 }}">
+                        </div>
+                        <div class="form-group">
+                            <div class="mb-1 small">Email 2 pada halaman contact</div>
+                            <input type="text" class="form-control" name="email2" placeholder="Email 2"
+                                value="{{ $data->email2 }}">
+                        </div>
+                        <div class="form-group">
+                            <div class="mb-1 small">Email 3 pada halaman contact</div>
+                            <input type="text" class="form-control" name="email3" placeholder="Email 3"
+                                value="{{ $data->email3 }}">
                         </div>
                         {{-- <input type="hidden" name="id_produk" value="{{ $data->id_produk }}">
                         <input type="hidden" name="path" value="4">

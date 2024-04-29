@@ -5,21 +5,23 @@
 @section('content')
 
     <!-- ##### Breadcumb Area Start ##### -->
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg/bg2.jpg);">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12">
-                    <div class="breadcumb-text text-center">
-                        <h2>Contact</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="breadcumb-area bg-img" style="background-image: url(img/bg/kontak.jpg);">
+
     </div>
+    <section class="about-area" style="padding-top: 20px">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" style="background-color: transparent">
+                    <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Kontak Kami</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
     <!-- ##### Breadcumb Area End ##### -->
 
     <!-- ##### Contact Information Area Start ##### -->
-    <div class="contact-information-area section-padding-80">
+    <div class="contact-information-area">
         <div class="container">
             <div class="row">
                 <div class="col-12">
