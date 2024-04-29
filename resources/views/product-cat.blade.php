@@ -5,7 +5,7 @@
 @section('content')
 
     <!-- ##### Breadcumb Area Start ##### -->
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(/img/bg/produk.jpg);">
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(/img/bg/produk1.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -21,7 +21,7 @@
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" style="background-color: transparent">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="/product">Produk</a></li>
                     <li class="breadcrumb-item active" aria-current="page">{{ $kategori }}</li>
                 </ol>
@@ -36,17 +36,17 @@
                     <div class="section-heading">
                         <div class="single-marketplace">
                             @if ($kategori == 'Bijag')
-                                <img src="/img/logo/bijag.png" style="max-width: 120px" alt="">
+                                <img src="/img/logo/BIJAG.png" style="max-width: 120px" alt="">
                             @elseif ($kategori == 'Kaca')
-                                <img src="/img/logo/kaca.png" style="max-width: 120px" alt="">
+                                <img src="/img/logo/KACA.png" style="max-width: 120px" alt="">
                             @elseif ($kategori == 'Langit Biru')
                                 <img src="/img/logo/LB.png" style="max-width: 120px" alt="">
                             @elseif ($kategori == 'Mimora')
-                                <img src="/img/logo/mimora.png" style="max-width: 120px" alt="">
+                                <img src="/img/logo/MIMORA.png" style="max-width: 120px" alt="">
                             @elseif ($kategori == 'Padamu')
-                                <img src="/img/logo/padamu.png" style="max-width: 120px" alt="">
+                                <img src="/img/logo/PADAMU.png" style="max-width: 120px" alt="">
                             @elseif ($kategori == 'Vitarasa')
-                                <img src="/img/logo/vitarasa.png" style="max-width: 120px" alt="">
+                                <img src="/img/logo/VITARASA.png" style="max-width: 120px" alt="">
                             @endif
 
                         </div>
@@ -60,8 +60,11 @@
                 <div class="owl-carousel owl-theme">
                     @foreach ($produk as $prod)
                         <div class="item">
-                            <img src="/storage/{{ $prod->gambar }}" style="width:300px; background-size: cover;"
+                            <img src="/storage/public/{{ $prod->gambar }}" style="width:300px; background-size: cover;"
                                 alt="...">
+                            <p class="text-justify" style="color: black">
+                                {{ $prod->desk }}
+                            </p>
                         </div>
                     @endforeach
                 </div>

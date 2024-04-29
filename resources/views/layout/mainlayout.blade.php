@@ -9,11 +9,11 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>PT.SPS Food | @yield('title')</title>
+    <title>SPS Food | @yield('title')</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="/img/core-img/favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/img/core-img/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.1.slim.js"
         integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -26,16 +26,16 @@
     <link rel="stylesheet" href="/css/owl.carousel.min.css" type="text/css" media="screen" />
 </head>
 
-<body>
+<body style="background-image: url('/img/bg/BG-01.jpg')">
 
     <!-- Preloader -->
     <div id="preloader">
         <i class="circle-preloader"></i>
-        <img src="/img/logo/sps.png" alt="">
+        <img src="/img/logo/SPS.png" alt="">
     </div>
 
     <!-- Search Wrapper -->
-    <div class="search-wrapper">
+    {{-- <div class="search-wrapper">
         <!-- Close Btn -->
         <div class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></div>
 
@@ -49,10 +49,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- ##### Header Area Start ##### -->
-    <header class="header-area">
+    <header class="header-area" style="opacity: 0.9">
 
         <!-- Top Header Area -->
         <div class="top-header-area">
@@ -63,7 +63,7 @@
                         <div class="breaking-news">
                             <div id="breakingNewsTicker" class="ticker">
                                 <ul>
-                                    <li><a href="#">PT. SPS FOOD</a></li>
+                                    <li><a href="#">SPS FOOD</a></li>
                                     <li><a href="#">Selalu Padamu</a></li>
                                     <li><a href="#"></a></li>
                                 </ul>
@@ -75,12 +75,13 @@
                     <div class="col-12 col-sm-6">
                         <div class="top-social-info text-right">
                             <a href="https://www.instagram.com/sps.food/?igshid=YmMyMTA2M2Y%3D" target="_blank"><i
-                                    class="fa fa-instagram" aria-hidden="true"></i></a>
-                            <a href="https://www.facebook.com/spsfood/" target="_blank"><i class="fa fa-facebook"
-                                    aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                    class="fa-brands fa-instagram fa-beat" aria-hidden="true"></i></a>
+
+                            <a href="https://www.facebook.com/spsfood/" target="_blank"><i
+                                    class="fa-brands fa-facebook fa-beat" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter fa-beat" aria-hidden="true"></i></a>
                             <a href="https://id.linkedin.com/company/ptsinarpangansejahtera" target="_blank"><i
-                                    class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                    class="fa-brands fa-linkedin fa-beat" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>
@@ -95,7 +96,7 @@
                     <nav class="classy-navbar justify-content-between" id="deliciousNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="/"><img style="max-width: 120px" src="/img/logo/sps.png"
+                        <a class="nav-brand" href="/"><img style="max-width: 120px" src="/img/logo/SPS.png"
                                 alt=""></a>
 
                         <!-- Navbar Toggler -->
@@ -115,25 +116,24 @@
                             <div class="classynav">
                                 <ul>
                                     <li class="{{ 'home' == request()->path() ? 'active' : '' }}"><a
-                                            href="/home">Home</a></li>
+                                            href="/home">BERANDA</a></li>
                                     <li class="{{ 'receipe' == request()->path() ? 'active' : '' }}"><a
-                                            href="/receipe">Receipies</a></li>
+                                            href="/receipe">RESEP</a></li>
                                     <li class="{{ 'product' == request()->path() ? 'active' : '' }}"><a
-                                            href="/product">Product</a></li>
-                                    <li class="{{ 'blog' == request()->path() ? 'active' : '' }}"><a
-                                            href="/blog">Blog</a></li>
+                                            href="/product">PRODUK</a></li>
                                     <li class="{{ 'about' == request()->path() ? 'active' : '' }}"><a
-                                            href="/about">About</a></li>
+                                            href="/about">TENTANG KAMI</a></li>
                                     <li class="{{ 'contact' == request()->path() ? 'active' : '' }}"><a
-                                            href="/contact">Contact</a></li>
+                                            href="/contact">HUBUNGI KAMI</a></li>
+
                                 </ul>
 
                                 <!-- Newsletter Form -->
                                 @if (session('login') == true)
                                     <div class="search-btn">
                                         <a href="/logout">
-                                            <i class="fa fa-sign-out fa-2x" data-toggle="tooltip"
-                                                title="Sign out"></i>
+                                            <i class="fa-solid fa-arrow-right-from-bracket fa-xl"></i>
+
                                         </a>
 
                                     </div>
@@ -152,7 +152,7 @@
     @show
 
     <!-- ##### Follow Us Instagram Area Start ##### -->
-    <div class="follow-us-instagram">
+    {{-- <div class="follow-us-instagram">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -163,31 +163,33 @@
         <!-- Instagram Feeds -->
         <div class="insta-feeds d-flex flex-wrap">
             <!-- Single Insta Feeds -->
-            <div class="single-insta-feeds">
-                <img src="/img/bg/Bee Hoon Claypot.jpg" alt="">
-                <!-- Icon -->
-                <div class="insta-icon">
-                    <a href="https://www.instagram.com/reel/CesQV5bAgOY/?utm_source=ig_web_copy_link"
-                        target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+             @foreach ($ig as $ig)
+                <div class="single-insta-feeds">
+                    <img src="/storage/public/{{ $ig->foto }}" alt="">
+                    <!-- Icon -->
+                    <div class="insta-icon">
+                        <a href="{{ $ig->link }}" target="_blank"><i class="fa-brands fa-instagram fa-beat"
+                                aria-hidden="true"></i></a>
+                    </div>
                 </div>
-            </div>
+            @endforeach --}}
 
-            <!-- Single Insta Feeds -->
+    {{-- <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="/img/bg/Bihun Mercon.jpg" alt="">
+                <img src="/img/ig/default.png" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="https://www.instagram.com/reel/CckdJXOhxQ1/?utm_source=ig_web_copy_link"
-                        target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        target="_blank"><i class="fa-brands fa-instagram fa-beat" aria-hidden="true"></i></a>
                 </div>
             </div>
 
             <!-- Single Insta Feeds -->
             <div class="single-insta-feeds">
-                <img src="/img/bg/Japchae.jpg" alt="">
+                <img src="/img/ig/Japchae.jpg" alt="">
                 <!-- Icon -->
                 <div class="insta-icon">
-                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram fa-beat" aria-hidden="true"></i></a>
                 </div>
             </div>
 
@@ -197,7 +199,7 @@
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="https://www.instagram.com/reel/Cdsaqx9AvCx/?utm_source=ig_web_copy_link"
-                        target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        target="_blank"><i class="fa-brands fa-instagram fa-beat" aria-hidden="true"></i></a>
                 </div>
             </div>
 
@@ -207,7 +209,7 @@
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="https://www.instagram.com/reel/CfS5EQVBplr/?utm_source=ig_web_copy_link"
-                        target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        target="_blank"><i class="fa-brands fa-instagram fa-beat" aria-hidden="true"></i></a>
                 </div>
             </div>
 
@@ -217,7 +219,7 @@
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="https://www.instagram.com/reel/Cd7MJB6h77W/?utm_source=ig_web_copy_link"
-                        target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        target="_blank"><i class="fa-brands fa-instagram fa-beat" aria-hidden="true"></i></a>
                 </div>
             </div>
 
@@ -227,44 +229,77 @@
                 <!-- Icon -->
                 <div class="insta-icon">
                     <a href="https://www.instagram.com/reel/CgtcMclg5nn/?utm_source=ig_web_copy_link"
-                        target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        target="_blank"><i class="fa-brands fa-instagram fa-beat" aria-hidden="true"></i></a>
                 </div>
-            </div>
+            </div> 
         </div>
-    </div>
+    </div> --}}
     <!-- ##### Follow Us Instagram Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
         <div class="container h-100">
             <div class="row h-100">
-                <div class="col-12 h-100 d-flex flex-wrap align-items-center justify-content-between">
+                <div class="row col-12 h-100 d-flex flex-wrap align-items-center justify-content-between">
                     <!-- Footer Social Info -->
-                    <div class="footer-social-info text-right">
+                    <div class="col-4 footer-logo">
+                        <a href="/home"><img style="max-width: 120px" src="/img/logo/SPS.png"
+                                alt=""></a><br>
+                        <p class="alamat"><a href="https://goo.gl/maps/qxNsq8SJUTEqiALa8" target=”_blank”>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Jl. Wicaksono, Bangil, Gn. Gangsir, Kec. Beji,
+                                <br>
+                                Pasuruan, Jawa Timur 67154
+                                <br>
+                                Pabrik SPS Food
+                            </a>
+
+                        </p>
+                    </div>
+                    <div class=" col-5 footer-social-info text-center">
                         <a href="https://www.instagram.com/sps.food/?igshid=YmMyMTA2M2Y%3D" target="_blank"><i
-                                class="fa fa-instagram" aria-hidden="true"></i></a>
-                        <a href="https://www.facebook.com/spsfood/" target="_blank"><i class="fa fa-facebook"
-                                aria-hidden="true"></i></a>
-                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                class="fa-brands fa-instagram fa-beat" aria-hidden="true"></i></a>
+
+                        <a href="https://www.facebook.com/spsfood/" target="_blank"><i
+                                class="fa-brands fa-facebook fa-beat" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter fa-beat" aria-hidden="true"></i></a>
                         <a href="https://id.linkedin.com/company/ptsinarpangansejahtera" target="_blank"><i
-                                class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                class="fa-brands fa-linkedin fa-beat" aria-hidden="true"></i></a>
+                        <br>
+                        <p>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            <a href="/login" style="margin: 0">
+                                Copyright &copy;
+                            </a>
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script> All rights reserved by <a href="https://colorlib.com"
+                                target="_blank">Colorlib</a>
+                        </p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>
                     <!-- Footer Logo -->
-                    <div class="footer-logo">
-                        <a href="/home"><img style="max-width: 120px" src="/img/logo/sps.png" alt=""></a>
-                    </div>
+
                     <!-- Copywrite -->
-                    <p>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        <a href="/login">
-                            Copyright &copy;
-                        </a>
-                        <script>
-                            document.write(new Date().getFullYear());
-                        </script> All rights reserved by <a href="https://colorlib.com"
-                            target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    </p>
+                    <div class=" col-3 footer-logo">
+                        <i class="fa-regular fa-envelope fa-rotate-by fa-2xl icon"
+                            style="--fa-rotate-angle: 340deg;font-size: 48px; margin-left: -60px"></i>
+
+                        <p class="alamat1">
+                            <br>
+
+                            <span>Layanan Konsumen</span>
+                            <span style="font-size: 13px;margin">Whatsapp/Call/SMS : 0888 388 0888</span>
+
+                            <span>Email : spspeduli@gmail.com</span>
+
+
+
+
+                            <br>
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -282,10 +317,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
     </script>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
     </script>
-    <script src="/js/bootstrap/bootstrap.min.js"></script>
+
     <!-- All Plugins js -->
     <script src="/js/plugins/plugins.js"></script>
     <!-- Active js -->
@@ -294,6 +331,7 @@
     <script type="text/javascript" src="/js/venobox.min.js"></script>
     <script type="text/javascript" src="/js/owl.carousel.min.js"></script>
     <script src="/js/main.js"></script>
+
 
 
 </body>

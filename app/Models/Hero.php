@@ -9,7 +9,7 @@ class Hero extends Model
 {
     protected $table = 'hero';
     protected $primaryKey = 'id_modal';
-    protected $fillable = ['id_hero', 'nama', 'deskripsi', 'gambar', 'updated_at', 'created_at'];
+    protected $fillable = ['id_hero', 'nama', 'deskripsi', 'gambar', 'first', 'status', 'updated_at', 'created_at'];
     protected $guarded = [];
     public $timestamp = false;
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use Illuminate\Support\Facades\Session;
 
 class BlogController extends Controller
 {
@@ -26,36 +27,44 @@ class BlogController extends Controller
 
     public function formBlog()
     {
-        return view('blog-form');
+        if (session::has('login')) {
+            return view('blog-form');
+        } else {
+            return redirect('blog');
+        }
     }
 
     public function kirimBlog(Request $request)
     {
-        $blog = $request->all();
-        $gambar = $request->file('gambar');
-        $video = $request->file('video');
-        $gambar_path = $gambar->storeAs('user_upload/gambar/blog', 'blog_' . uniqid() . '.' . $gambar->extension());
+        if (session::has('login')) {
+            $blog = $request->all();
+            $gambar = $request->file('gambar');
+            $video = $request->file('video');
+            $gambar_path = $gambar->storeAs('user_upload/gambar/blog', 'blog_' . uniqid() . '.' . $gambar->extension());
 
 
-        $video = $request->file('video');
+            $video = $request->file('video');
 
-        if ($video != null) {
-            $video_path = $video->storeAs('user_upload/video/blog', 'blog_' . uniqid() . '.' . $video->extension());
+            if ($video != null) {
+                $video_path = $video->storeAs('user_upload/video/blog', 'blog_' . uniqid() . '.' . $video->extension());
+            } else {
+                $video_path = null;
+            }
+
+
+
+            $blog = Blog::create([
+                'judul_blog' => $blog['judul'],
+                'kategori'  => $blog['kategori'],
+                'isi_blog' => $blog['isi'],
+                'pengirim' => "admin",
+                'gambar_blog' => $gambar_path,
+                'video_blog' => $video_path
+            ]);
+
+            return redirect('/blog');
         } else {
-            $video_path = null;
+            return redirect('blog');
         }
-
-
-
-        $blog = Blog::create([
-            'judul_blog' => $blog['judul'],
-            'kategori'  => $blog['kategori'],
-            'isi_blog' => $blog['isi'],
-            'pengirim' => 1,
-            'gambar_blog' => $gambar_path,
-            'video_blog' => $video_path
-        ]);
-
-        return redirect('/blog');
     }
 }

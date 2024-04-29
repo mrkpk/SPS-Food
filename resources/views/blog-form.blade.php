@@ -105,6 +105,7 @@
             var kategori = document.getElementById("kategori").value;
             var isi = document.getElementById("isi").value;
             var gambar = document.getElementById("gambar").value;
+            var gambarsize = document.getElementById("gambar").files[0].size / 1024 / 1024;
             var video = document.getElementById("video").value;
             var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
             var allowedExtensionsvids = /(\.mp4|\.avi|\.3gp|\.gif)$/i;
@@ -119,6 +120,13 @@
             if (gambar != "" && !allowedExtensions.exec(gambar)) {
                 alertify
                     .alert("Ooopss..", "Extension gambar salah.", function() {
+                        alertify.message('OK');
+                    });
+                return false;
+            }
+            if (gambarsize > 2) {
+                alertify
+                    .alert("Ooopss..", "Ukuran gambar terlalu besar.", function() {
                         alertify.message('OK');
                     });
                 return false;

@@ -1,6 +1,6 @@
 @extends('/layout.mainlayout')
 
-@section('title', 'Product')
+@section('title', 'Produk')
 
 @section('content')
 
@@ -54,10 +54,11 @@
                                                 <option value="0" selected>Open this select menu</option>
                                                 <option value="Bijag">Bijag</option>
                                                 <option value="Kaca">Kaca</option>
-                                                <option value="Langit Biru">Langit Biru</option>
+                                                <option value="LB">Langit Biru</option>
                                                 <option value="Mimora">Mimora</option>
                                                 <option value="Padamu">Padamu</option>
                                                 <option value="Vitarasa">Vitarasa</option>
+                                                <option value="Bisohun">Bisohun</option>
                                             </select>
                                         </div>
                                     </div>
@@ -76,6 +77,13 @@
                                             </div>
                                             <input type="text" class="form-control" id="merk" name="merk"
                                                 placeholder="Merk">
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            <div class="single-contact-information">
+                                                <p>Deskripsi</p>
+                                            </div>
+                                            <input type="text" class="form-control" id="desk" name="desk"
+                                                placeholder="Deskripsi">
                                         </div>
                                     </div>
 
@@ -114,6 +122,7 @@
             var principal = document.getElementById("principal").value;
             var merk = document.getElementById("merk").value;
             var gambar = document.getElementById("gambar").value;
+            var gambarsize = document.getElementById("gambar").files[0].size / 1024 / 1024;
             var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
 
             if (produk == "" || kategori == "" || principal == "" || merk == "" || gambar == "") {
@@ -133,6 +142,13 @@
             if (!allowedExtensions.exec(gambar)) {
                 alertify
                     .alert("Ooopss..", "Extension gambar salah.", function() {
+                        alertify.message('OK');
+                    });
+                return false;
+            }
+            if (gambarsize > 2) {
+                alertify
+                    .alert("Ooopss..", "Ukuran gambar terlalu besar.", function() {
                         alertify.message('OK');
                     });
                 return false;

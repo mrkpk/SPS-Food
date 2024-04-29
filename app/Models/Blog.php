@@ -9,6 +9,6 @@ class Blog extends Model
 {
     protected $table = 'blog';
     protected $primaryKey = 'id_blog';
-    protected $fillable = ['id_blog', 'judul_blog', 'kategori', 'isi_blog', 'gambar_blog', 'video_blog', 'pengirim', 'created_at', 'updated_at'];
+    protected $fillable = ['id_blog', 'judul_blog', 'kategori', 'isi_blog', 'gambar_blog', 'video_blog', 'pengirim', 'status', 'created_at', 'updated_at'];
     protected $guarded = [];
 }

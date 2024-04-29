@@ -28,10 +28,16 @@
                         <div class="form-03-main">
                             <div class="logo">
                                 <a href="/home">
-                                    <img src="/img/logo/sps.png">
+                                    <img src="/img/logo/SPS.png">
                                 </a>
 
                             </div>
+                            @if ($errors->has('email'))
+                                <div class="alert alert-danger" role="alert">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </div>
+                            @endif
+
                             <form action="login-action" id="formLogin" method="post" enctype="multipart/form-data"
                                 onsubmit="validateForm(event)">
                                 @csrf
