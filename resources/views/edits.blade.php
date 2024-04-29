@@ -484,31 +484,33 @@
             @endif
             @if ($id == 7)
                 <div class="card-body">
-                    <form action="/edit-actionr" class="user" id="formIg" method="post"
-                        enctype="multipart/form-data" onsubmit="validateFormIg(event)">
+                    <form action="/edit-actionr" class="user" id="formCat" method="post"
+                        enctype="multipart/form-data" onsubmit="validateFormCat(event)">
                         @csrf
                         @method('POST')
                         <div class="form-group">
-                            <div class="mb-1 small">Nama</div>
-                            <input type="text" class="form-control form-control-user" name="nama" id="nama"
-                                value="{{ $data->nama }}" placeholder="Judul Modal">
+                            <div class="mb-1 small">Kategori</div>
+                            <input type="text" class="form-control form-control-user" name="kategori" id="kategori"
+                                value="{{ $data->kategori }}" placeholder="Kategori">
                         </div>
-                        <input type="hidden" name="id_ig" value="{{ $data->id_ig }}">
+                        <input type="hidden" name="id_cat" value="{{ $data->id_cat }}">
                         <input type="hidden" name="path" value="7">
                         <div class="form-group">
-                            <div class="mb-1 small">Link</div>
-                            <input type="text" class="form-control form-control-user" name="link" id="link"
-                                value="{{ $data->link }}" placeholder="Deskripsi">
+                            <div class="mb-1 small">Deskripsi</div>
+                            <textarea type="text" class="form-control" rows="4" name="desk" id="desk"
+                                placeholder="Deskripsi">
+                                {{ $data->desk }}
+                            </textarea>
                         </div>
                         <div class="form-group">
                             <div class="single-contact-information">
                                 <p>Gambar</p>
                             </div>
                             <input type="file" class="form-control-file" name="gambar" id="gambar"
-                                onchange="previewig(event)">
+                                onchange="previewcat(event)">
                             <br>
-                            @if ($data->gambar)
-                                <img src="/storage/public/{{ $data->foto }}" id="gambar-ig" class="img-thumbnail"
+                            @if ($data->path)
+                                <img src="/storage/public/{{ $data->path }}" id="gambar_cat" class="img-thumbnail"
                                     style="max-width: 250px" alt="...">
                             @endif
                         </div>
@@ -675,15 +677,15 @@
             }
         }
 
-        function validateFormIg(e) {
+        function validateFormCat(e) {
             e.preventDefault();
-
+            var kategori = document.getElementById("kategori").value;
+            var desk = document.getElementById("desk").value;
             var gambar = document.getElementById("gambar").value;
             if (gambar != "") {
                 var gambarsize = document.getElementById("gambar").files[0].size / 1024 / 1024;
             }
             var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
-            var allowedExtensionsvids = /(\.mp4|\.avi|\.3gp|\.gif)$/i;
 
             if (gambar != "" && !allowedExtensions.exec(gambar)) {
                 alertify
@@ -691,8 +693,13 @@
                         alertify.message('OK');
                     });
                 return false;
-            }
-            if (gambarsize > 2) {
+            } else if (kategori == "" || desk == "") {
+                alertify
+                    .alert("Ooopss..", "Tidak boleh ada field kosong.", function() {
+                        alertify.message('OK');
+                    });
+                return false;
+            } else if (gambarsize > 2) {
                 alertify
                     .alert("Ooopss..", "Ukuran gambar terlalu besar.", function() {
                         alertify.message('OK');
@@ -702,7 +709,7 @@
                 alertify.confirm("This is a confirm dialog.",
                     function() {
                         alertify.success('Ok');
-                        document.getElementById('formIg').submit();
+                        document.getElementById('formCat').submit();
                     },
                     function() {
                         alertify.error('Cancel');
@@ -782,8 +789,8 @@
             output.src = URL.createObjectURL(event.target.files[0]);
         }
 
-        function previewig(e) {
-            var output = document.getElementById("gambar-ig");
+        function previewcat(e) {
+            var output = document.getElementById("gambar_cat");
             output.src = URL.createObjectURL(event.target.files[0]);
         }
     </script>

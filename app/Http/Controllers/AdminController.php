@@ -10,6 +10,7 @@ use App\Models\Content;
 use App\Models\Blog;
 use App\Models\Instagram;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
@@ -82,6 +83,9 @@ class AdminController extends Controller
                 $data = Content::first();
 
                 return view('tables-con', compact(['data']));
+            } elseif ($id == 5) {
+                $data = Category::orderBy('kategori', 'asc')->get();
+                return view('tables-cat', compact(['data']));
             }
         } else {
             return redirect('home');
@@ -134,7 +138,7 @@ class AdminController extends Controller
                 $data = Content::first();
                 return view('edits', compact(['data', 'id']));
             } elseif ($id == 7) {
-                $data = Instagram::where('id_ig', $idr)->first();
+                $data = Category::where('id_cat', $idr)->first();
                 return view('edits', compact(['data', 'id']));
             }
         } else {
@@ -395,6 +399,25 @@ class AdminController extends Controller
                     ]);
 
                 return redirect('/content-admin/4');
+            } elseif ($d['path'] == 7) {
+                $data = Category::find($d['id_cat']);
+
+                if (isset($d['gambar'])) {
+                    Storage::delete($data->path);
+
+                    $gambar = $req->file('gambar');
+                    $ext = $gambar->extension();
+                    $gambar_path = $gambar->storeAs('/img/logo', 'cat_' . $data->id_cat . '.' . strtolower($ext));
+
+                    $data->update(['path' => $gambar_path]);
+                }
+                $data
+                    ->update([
+                        'kategori' => $d['kategori'],
+                        'desk' => $d['desk']
+                    ]);
+
+                return redirect('/content-admin/5');
             }
         } else {
             return redirect('home');

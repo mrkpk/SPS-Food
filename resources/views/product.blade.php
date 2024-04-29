@@ -125,9 +125,10 @@
 
                     head = '<div class="row align-items-center mt-70" id="bijagitem">' +
                         '<div class="row d-flex justify-content-center">' +
-                        '<div class="col-10 col-md-9 col-lg-12">' +
+                        '<div class="col-10 col-md-9 col-lg-9">' +
 
-                        '<p class="text-center" style="color:rgb(24, 24, 24)"><img src="' + prod.cat.path +
+                        '<p class="text-center" style="color:rgb(24, 24, 24)"><img src="/storage/public/' + prod
+                        .cat.path +
                         '"' +
                         '" style="width:150px; background-size: cover;"' +
                         'alt="..."><br><br><strong>' + prod.cat.desk + '</strong></p>' +

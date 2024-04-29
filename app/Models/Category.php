@@ -9,7 +9,7 @@ class Category extends Model
 {
     protected $table = 'cat_prod';
     protected $primaryKey = 'id_cat';
-    protected $fillable = ['kategori', 'pat', 'desk'];
+    protected $fillable = ['kategori', 'path', 'desk', 'updated_at', 'created_at'];
     protected $guarded = [];
     public $timestamp = false;
 }

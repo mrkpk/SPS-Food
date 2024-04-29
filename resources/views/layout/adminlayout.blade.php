@@ -67,6 +67,7 @@
                         <a class="collapse-item" href="/blog-admin/2">Blog</a>
                         <a class="collapse-item" href="/product-admin/3">Product</a>
                         <a class="collapse-item" href="/content-admin/4">Content</a>
+                        <a class="collapse-item" href="/content-admin/5">Product-Desk</a>
                     </div>
                 </div>
             </li>

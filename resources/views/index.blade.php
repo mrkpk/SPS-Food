@@ -58,13 +58,13 @@
                                         {{ $best->nama_menu }}
                                     </h5>
                                 </a>
-                                <div class="ratings">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-                                </div>
+                                <!--<div class="ratings">-->
+                                <!--    <i class="fa fa-star" aria-hidden="true"></i>-->
+                                <!--    <i class="fa fa-star" aria-hidden="true"></i>-->
+                                <!--    <i class="fa fa-star" aria-hidden="true"></i>-->
+                                <!--    <i class="fa fa-star" aria-hidden="true"></i>-->
+                                <!--    <i class="fa fa-star-o" aria-hidden="true"></i>-->
+                                <!--</div>-->
                             </div>
                         </div>
                     </div>
