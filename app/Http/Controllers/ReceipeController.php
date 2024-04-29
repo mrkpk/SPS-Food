@@ -52,7 +52,7 @@ class ReceipeController extends Controller
         if (session::has('login')) {
             $menu = $request->except(['proses', 'bahan', '_token', 'gambar']);
             $gambar = $request->file('gambar');
-            $gambar_path = $gambar->storeAs('public/user_upload/gambar/resep', 'resep_' . uniqid() . '.' . $gambar->extension());
+            $gambar_path = $gambar->storeAs('user_upload/gambar/resep', 'resep_' . uniqid() . '.' . $gambar->extension());
 
 
             $video = $request->file('video');
