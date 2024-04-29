@@ -77,6 +77,10 @@
                                                 id="0/{{ $data->id_produk }}">
                                                 <i class="fa fa-undo"></i>
                                             </a>
+                                            <a href="#" class="trash btn btn-danger btn-circle"
+                                                id="2/{{ $data->id_produk }}">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
                                         @endif
                                     </td>
                                 </tr>

@@ -174,6 +174,14 @@ class AdminController extends Controller
                     $data
                         ->update(['status' => 1]);
                 }
+                if ($ids == 2) {
+                    Storage::delete($data->gambar_path);
+                    if (isset($data->video_path)) {
+                        Storage::delete($data->video_path);
+                    }
+                    $data->delete();
+                    return redirect('/receipes-trash/' . $id);
+                }
                 return redirect('/receipes-admin/' . $id);
             } elseif ($id == 2) {
                 $data = Blog::find($idr);
@@ -217,6 +225,12 @@ class AdminController extends Controller
                         ->update(['status' => 1]);
                     return redirect('/product-admin/3');
                 }
+                if ($ids == 2) {
+                    Storage::delete($data->gambar);
+
+                    $data->delete();
+                    return redirect('/product-trash/3');
+                }
                 return redirect('/product-admin/3');
             }
         } else {
@@ -224,43 +238,7 @@ class AdminController extends Controller
         }
     }
 
-    public function delete($id, $idr)
-    {
-        if (session::has('login')) {
 
-            if ($id == 1) {
-                $data = Menu::find($idr);
-                if ($data->gambar_path != null) {
-                    Storage::delete($data->gambar_path);
-                }
-                if ($data->video_path != null) {
-                    Storage::delete($data->video_path);
-                }
-                $data->delete();
-
-                return redirect('/receipes-admin/' . $id);
-            } elseif ($id == 2) {
-                $data = Blog::find($idr);
-                if ($data->gambar_blog != null) {
-                    Storage::delete($data->gambar_blog);
-                }
-                if ($data->video_blog != null) {
-                    Storage::delete($data->video_blog);
-                }
-                $data->delete();
-                return redirect('/blog-admin/' . $id);
-            } elseif ($id == 3) {
-                $data = Hero::find($idr);
-                if ($data->gambar != null) {
-                    Storage::delete($data->gambar);
-                }
-                $data->delete();
-                return redirect('/pages/1');
-            }
-        } else {
-            return redirect('home');
-        }
-    }
 
     public function editAction(Request $req)
     {

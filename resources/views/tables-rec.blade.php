@@ -83,6 +83,10 @@
                                                 id="0/{{ $data->id_menu }}">
                                                 <i class="fa fa-undo"></i>
                                             </a>
+                                            <a href="#" class="trash btn btn-danger btn-circle"
+                                                id="2/{{ $data->id_menu }}">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
                                         @endif
                                         <!-- Logout Modal-->
 
@@ -100,7 +104,7 @@
         $(document).on('click', '.trash', function() {
             var a = this.id;
 
-            alertify.confirm("This is a confirm dialog.",
+            alertify.confirm("Apakah anda yakin ?",
                 function() {
 
                     alertify.success('Ok');

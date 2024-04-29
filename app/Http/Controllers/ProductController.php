@@ -57,7 +57,10 @@ class ProductController extends Controller
         if ($id == 'LB') {
             $id = 'Langit Biru';
         }
-        $data = Product::where('kategori', $id)
+        $data = Product::where([
+            'kategori' => $id,
+            'status' => 1
+        ])
             ->select('*', DB::raw('REPLACE(desk, ";", "<br>") AS desk'))
             ->get();
 
