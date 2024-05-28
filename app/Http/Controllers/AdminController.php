@@ -212,6 +212,11 @@ class AdminController extends Controller
                         ->update(['status' => 1]);
                     return redirect('/pages/0');
                 }
+                if ($ids == 2) {
+                    Storage::delete($data->gambar);
+                    $data->delete();
+                    return redirect('/pages/0');
+                }
             } elseif ($id == 5) {
                 $data = Product::find($idr);
 
@@ -528,6 +533,41 @@ class AdminController extends Controller
             return response()->json([
                 'success' => 'Record deleted successfully!'
             ]);
+        }
+    }
+
+    public function clearTrash($path)
+    {
+        if ($path == 0) {
+            $data = Hero::where('status', 0)->get();
+            for ($i = 0; $i < count($data); $i++) {
+                Storage::delete($data[$i]->gambar);
+                $data[$i]->delete();
+            }
+            return redirect('/pages/0');
+        }
+        if ($path == 1) {
+            $data = Menu::where('status', 0)->get();
+            for ($i = 0; $i < count($data); $i++) {
+                if (isset($data[$i]->gambar_path)) {
+                    Storage::delete($data[$i]->gambar_path);
+                }
+                if (isset($data[$i]->video_path)) {
+                    Storage::delete($data[$i]->video_path);
+                }
+                $data[$i]->delete();
+            }
+            return redirect('/receipes-trash/1');
+        }
+        if ($path == 2) {
+            $data = Product::where('status', 0)->get();
+            for ($i = 0; $i < count($data); $i++) {
+                if (isset($data[$i]->gambar)) {
+                    Storage::delete($data[$i]->gambar);
+                }
+                $data[$i]->delete();
+            }
+            return redirect('/product-trash/3');
         }
     }
 }

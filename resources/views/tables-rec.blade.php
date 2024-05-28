@@ -28,6 +28,10 @@
                         <a href="/receipes-admin/1" class="btn btn-secondary btn-circle">
                             <i class="fa fa-reply"></i>
                         </a>
+                        <a href="#" id="1" class="btn btn-danger dump btn-circle" data-toggle="tooltip"
+                            data-placement="top" title="Clear Trash">
+                            <i class="fa-solid fa-dumpster"></i>
+                        </a>
                     @endif
                 </h6>
             </div>
@@ -109,6 +113,19 @@
 
                     alertify.success('Ok');
                     location.href = "/remove-receipes/1/" + a;
+                },
+                function() {
+                    alertify.error('Cancel');
+                });
+        });
+        $(document).on('click', '.dump', function() {
+            var a = this.id;
+
+            alertify.confirm("Apakah anda yakin menghapus permanen semua item ?",
+                function() {
+
+                    alertify.success('Ok');
+                    location.href = "/clear-trash/" + a;
                 },
                 function() {
                     alertify.error('Cancel');
