@@ -1,6 +1,6 @@
 @extends('/layout.adminlayout')
 
-@section('title', 'Receipes')
+@section('title', 'Product')
 
 @section('content')
 
@@ -23,6 +23,10 @@
                         @if ($type == 0)
                             <a href="/product-admin/3" class="btn btn-secondary btn-circle">
                                 <i class="fa fa-reply"></i>
+                            </a>
+                            <a href="#" id="2" class="btn btn-danger dump btn-circle" data-toggle="tooltip"
+                                data-placement="top" title="Clear Trash">
+                                <i class="fa-solid fa-dumpster"></i>
                             </a>
                         @endif
                     </h6>
@@ -128,11 +132,25 @@
             var a = this.id;
             console.log(a);
 
-            alertify.confirm("This is a confirm dialog.",
+            alertify.confirm("Apakah anda yakin ?",
                 function() {
 
                     alertify.success('Ok');
                     location.href = "/remove-product/5/" + a;
+                },
+                function() {
+                    alertify.error('Cancel');
+                });
+        });
+
+        $(document).on('click', '.dump', function() {
+            var a = this.id;
+
+            alertify.confirm("Apakah anda yakin menghapus permanen semua item ?",
+                function() {
+
+                    alertify.success('Ok');
+                    location.href = "/clear-trash/" + a;
                 },
                 function() {
                     alertify.error('Cancel');

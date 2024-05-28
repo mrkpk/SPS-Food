@@ -17,7 +17,7 @@
             <!-- Earnings (Monthly) Card Example -->
 
             @if ($path == 1)
-                <div class="col-xl-4 col-md-4 mb-4">
+                <div class="col-xl-6 col-md-4 mb-4">
                     <div class="card border-left-primary shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
@@ -39,7 +39,7 @@
                 </div>
 
                 <!-- Earnings (Annual) Card Example -->
-                <div class="col-xl-4 col-md-4 mb-4">
+                <div class="col-xl-6 col-md-4 mb-4">
                     <div class="card border-left-success shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-4 col-md-4 mb-4">
+                {{-- <div class="col-xl-4 col-md-4 mb-4">
                     <div class="card border-left-warning shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
@@ -78,7 +78,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             @endif
             <div class="container-fluid">
 
@@ -102,8 +102,13 @@
                             @endif
                             @if ($path == 0)
                                 <a href="/pages/1" class="btn btn-secondary btn-circle" style="margin-bottom: 10px"
-                                    data-toggle="tooltip" data-placement="top" title="Trash">
+                                    data-toggle="tooltip" data-placement="top" title="Return">
                                     <i class="fa-solid fa-reply"></i>
+                                </a>
+                                <a href="#" id="0" class="btn btn-danger dump btn-circle"
+                                    style="margin-bottom: 10px" data-toggle="tooltip" data-placement="top"
+                                    title="Clear Trash">
+                                    <i class="fa-solid fa-dumpster"></i>
                                 </a>
                             @endif
 
@@ -134,9 +139,13 @@
                                                 <td><img style="max-width:500px" src="/storage/public/{{ $hero['gambar'] }}"
                                                         alt=""></td>
                                                 <td>
-                                                    <a href="/remove-hero/3/0/{{ $hero['id_modal'] }}"
-                                                        class="btn btn-secondary btn-circle" title="Trash">
+                                                    <a href="#" id="0/{{ $hero['id_modal'] }}"
+                                                        class="btn btn-secondary delete btn-circle" title="Rollback">
                                                         <i class="fa-solid fa-rotate-left fa-spin fa-spin-reverse"></i>
+                                                    </a>
+                                                    <a href="#" id="2/{{ $hero['id_modal'] }}"
+                                                        class="btn btn-danger delete btn-circle" title="Delete">
+                                                        <i class="fa-solid fa-rotate-left fa-trash fa-spin-reverse"></i>
                                                     </a>
                                                 </td>
                                         </tr>
@@ -208,25 +217,6 @@
                                 </table>
 
                             </div>
-                            <div class="table-responsive" id="igtab">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Urutan</th>
-                                            <th>Nama</th>
-                                            <th>Link</th>
-                                            <th>Gambar</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody id="ig">
-
-                                    </tbody>
-
-                                </table>
-
-                            </div>
                         @endif
                     </div>
                 </div>
@@ -240,15 +230,15 @@
         <script>
             tampilDataHero()
             tampilDataBest()
-            tampilDataig()
+
             tampilDatanotBest()
             $("#besttab").hide();
-            $("#igtab").hide();
+
             $(document).ready(function() {
                 $("#herobut").click(function() {
                     $("#herotab").toggle(1000);
                     $("#besttab").hide(300);
-                    $("#igtab").hide(300);
+
                 });
             });
 
@@ -256,17 +246,11 @@
                 $("#bestbut").click(function() {
                     $("#besttab").toggle(1000);
                     $("#herotab").hide(300);
-                    $("#igtab").hide(300);
+
                 });
             });
 
-            $(document).ready(function() {
-                $("#igbut").click(function() {
-                    $("#igtab").toggle(1000);
-                    $("#herotab").hide(300);
-                    $("#besttab").hide(300);
-                });
-            });
+
 
 
 
@@ -299,32 +283,6 @@
 
                 });
             }
-
-            function tampilDataig() {
-
-                $('#hero').html('');
-                $.ajax({
-                    url: "{{ route('ig') }}",
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function(data) {
-                        $.each(data, function(key, values) {
-                            $('#ig').append('<tr><td>' + parseInt(key + 1) + '</td><td>' + data[key]
-                                .nama + '</td><td>' + data[key].link +
-                                '</td><td><img style="max-width:100px" src="/storage/public/' + data[
-                                    key]
-                                .foto + '" alt=""></td><td><a id="edit" href="/edit-blog/7/' + data[
-                                    key].id_ig + '" name="' + data[key].id_ig +
-                                '" class="btn-pilih btn btn-success btn-circle"><i class="fa-solid fa-pencil"></i></a>' +
-                                '</td></tr>'
-                            );
-                        });
-                    }
-
-                });
-            }
-
-
 
             function tampilDataBest() {
 
@@ -410,7 +368,7 @@
             $(document).on('click', '.trash', function() {
                 var a = this.id;
 
-                alertify.confirm("This is a confirm dialog.",
+                alertify.confirm("Apakah anda yakin.",
                     function() {
 
                         alertify.success('Ok');
@@ -422,4 +380,33 @@
             });
         </script>
     @endif
+    <script>
+        $(document).on('click', '.delete', function() {
+            var a = this.id;
+
+            alertify.confirm("Apakah anda yakin.",
+                function() {
+
+                    alertify.success('Ok');
+                    location.href = "/remove-hero/3/" + a;
+                },
+                function() {
+                    alertify.error('Cancel');
+                });
+        });
+
+        $(document).on('click', '.dump', function() {
+            var a = this.id;
+
+            alertify.confirm("Apakah anda yakin menghapus permanen semua item ?",
+                function() {
+
+                    alertify.success('Ok');
+                    location.href = "/clear-trash/" + a;
+                },
+                function() {
+                    alertify.error('Cancel');
+                });
+        });
+    </script>
 @endsection

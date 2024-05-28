@@ -91,6 +91,9 @@ Route::GET('/remove-blog/{id}/{ids}/{idr}', [AdminController::class, 'remove']);
 Route::GET('/remove-product/{id}/{ids}/{idr}', [AdminController::class, 'remove']);
 Route::GET('/remove-hero/{id}/{ids}/{idr}', [AdminController::class, 'remove']);
 
+Route::GET('/clear-trash/{id}', [AdminController::class, 'clearTrash']);
+
+
 
 Route::GET('/symlink', function () {
     $targetFolder = $_SERVER['DOCUMENT_ROOT'] . '/storage/app/public';
